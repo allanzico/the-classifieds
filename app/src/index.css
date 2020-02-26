@@ -20,4 +20,9 @@ code {
   justify-content: center;
 }
 
+.classifieds-heading {
+  display: flex;
+  justify-content: center;
+}
+
 

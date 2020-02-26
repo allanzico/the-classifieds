@@ -1,18 +1,21 @@
 import React from 'react';
 
-const ClassifiedCard = () => {
+const ClassifiedCard = ({classified}) => {
 return (
-    <div className="classifieds-card">
+    <div className="card-row">
+        <div className="classifieds-card">
         <span className="card-title">
-            TITLE
+            {classified.title}
         </span>
-        <p>
-            CONTENT
-        </p>
-        <p>
-            TIME SLUG
-        </p>
+            <p>
+                {classified.content}
+            </p>
+            <p>
+                added by ..... 2 minutes ago
+            </p>
+        </div>
     </div>
+
 )
 }
 

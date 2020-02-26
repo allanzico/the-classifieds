@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import  {connect} from 'react-redux'
+import {createClassified} from "../../store/actions/classifiedAction";
 
 
 class CreateClassified extends Component{
@@ -15,7 +17,7 @@ class CreateClassified extends Component{
 
     handleSubmit =(e)=>{
         e.preventDefault();
-        console.log(this.state);
+        this.props.createClassified(this.state)
     }
 
     render() {
@@ -43,4 +45,10 @@ class CreateClassified extends Component{
 
 }
 
-export  default CreateClassified;
+const  mapDispatchToProps = (dispatch) => {
+return {
+    createClassified: (classified) => dispatch(createClassified(classified))
+}
+}
+
+export  default connect(null, mapDispatchToProps) (CreateClassified);
