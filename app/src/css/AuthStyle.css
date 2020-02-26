@@ -1,0 +1,84 @@
+.signin-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.signup-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.sigin-form {
+    padding: 20px;
+    margin: 20px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sigin-form .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: yellow;
+}
+.signin-primary-button {
+    background: dodgerblue;
+    align-content: center;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 12px 10px 12px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.signup-button {
+    background: lightgray;
+    align-content: center;
+    color: black;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 12px 10px 12px;
+}
+
+
+.sigup-form {
+    padding: 20px;
+    margin: 20px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sigup-form .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: yellow;
+}
+.signup-primary-button {
+    background: dodgerblue;
+    align-content: center;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 12px 10px 12px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.signin-button {
+    background: lightgray;
+    align-content: center;
+    color: black;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 12px 10px 12px;
+}
