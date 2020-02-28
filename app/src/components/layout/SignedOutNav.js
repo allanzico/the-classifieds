@@ -10,7 +10,7 @@ const SignedOut = () => {
                     <i className="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
                 </li>
                 <li className="list-item">
-                    <Link to="/home" className="link">THE CLASSIFIEDS</Link>
+                    <Link to="/" className="link">THE CLASSIFIEDS</Link>
                 </li>
                 <li className="list-item">
                     <form className="search-signed-out">

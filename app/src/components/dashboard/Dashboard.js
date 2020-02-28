@@ -4,12 +4,14 @@ import ClassifiedsList from "../classifieds/ClassifiedList";
 import {connect} from 'react-redux';
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
+import {Redirect} from "react-router-dom";
 
 
 class Dashboard extends Component {
 
     render() {
-       const {classifieds} = this.props;
+       const {classifieds, auth} = this.props;
+       if (!auth.uid) return <Redirect to="/signin"/>
         return (
             <div className="dashboard flex-container">
                 <div className="classifieds-column">
@@ -26,7 +28,8 @@ class Dashboard extends Component {
 
 const  mapStateToProps = (state)=>{
     return {
-        classifieds: state.firestore.ordered.classifieds
+        classifieds: state.firestore.ordered.classifieds,
+        auth: state.firebase.auth
     }
 
 }

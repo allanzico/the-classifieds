@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import  {connect} from 'react-redux'
 import {createClassified} from "../../store/actions/classifiedAction";
+import {Redirect} from "react-router-dom";
 
 
 class CreateClassified extends Component{
@@ -18,9 +19,13 @@ class CreateClassified extends Component{
     handleSubmit =(e)=>{
         e.preventDefault();
         this.props.createClassified(this.state)
+        this.props.history.push('/')
     }
 
     render() {
+        const  {auth} = this.props;
+
+        if (!auth.uid) return <Redirect to="/signin"/>
         return(
             <div className="create-classified-container">
                 <form onSubmit={this.handleSubmit} className="create-classified-form">
@@ -45,10 +50,17 @@ class CreateClassified extends Component{
 
 }
 
+const  mapStateToProps = (state)=>{
+    return {
+        auth: state.firebase.auth
+    }
+
+}
+
 const  mapDispatchToProps = (dispatch) => {
 return {
     createClassified: (classified) => dispatch(createClassified(classified))
 }
 }
 
-export  default connect(null, mapDispatchToProps) (CreateClassified);
+export  default connect(mapStateToProps, mapDispatchToProps) (CreateClassified);

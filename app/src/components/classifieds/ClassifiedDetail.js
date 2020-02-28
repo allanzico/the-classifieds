@@ -2,12 +2,16 @@ import  React from 'react';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {firestoreConnect} from "react-redux-firebase";
+import {Redirect} from "react-router-dom";
+import moment from "moment";
 
 const ClassifiedDetails = (props) => {
 
-    const  classified  = props;
+    const  {classified, auth}  = props;
+    if (!auth.uid) return <Redirect to="/signin"/>
 
     if (classified){
+
         return (
             <div className="container classified-details-container">
                 <div className="card z-depth-0">
@@ -16,12 +20,15 @@ const ClassifiedDetails = (props) => {
                     </div>
                     <div className="classified-details">
                         <div className="fakeimg" >Image</div>
-                        <p>Some text..</p>
+
                         <p>
                             {classified.content}
                         </p>
                         <div className="content-actions">
-                            <p>Added by {classified.authorName}</p>
+                            <p>
+                                added by{ classified.authorName }
+                                { moment(classified.createdAt.toDate().toString()).calendar() }
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -43,16 +50,11 @@ const  mapStateToProps =(state, ownProps) =>{
 const  id = ownProps.match.params.id;
 const classifieds = state.firestore.data.classifieds;
 const classified = classifieds ? classifieds[id] : null
-// if (state.firestore.data.classifieds) {
-//     const classifieds = state.firestore.data.classifieds[id];
-//     return {
-//     classified: classifieds
-//     }
-// }
-//const classified = classifieds[id]
+
 
     return {
-        classified: classifieds
+        classified: classified,
+        auth: state.firebase.auth
     }
 }
 

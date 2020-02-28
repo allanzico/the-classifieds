@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from "moment";
 
 
 const ClassifiedCard = ({classified}) => {
@@ -13,7 +14,8 @@ return (
                 {classified.content}
             </p>
             <p>
-                added by ..... 2 minutes ago
+                added by {classified.authorName} {moment(classified.createdAt.toDate().toString()).calendar()}
+
             </p>
         </div>
 

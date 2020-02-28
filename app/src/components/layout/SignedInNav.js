@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {signIn, signOut} from "../../store/actions/authActions";
 
 
-const SignedIn = () => {
+const SignedIn = (props) => {
     return (
 
             <ul className="main-navigation">
@@ -14,10 +16,10 @@ const SignedIn = () => {
                 </li>
 
                 <li className="list-item">
-                    <Link to="notification" className="link">Notifications</Link>
+                    <Link to="/notification" className="link">Notifications</Link>
                 </li>
                 <li className="list-item">
-                    <Link to="" className="link">Something</Link>
+                    <Link to="/" className="link">Something</Link>
                 </li>
                 <li className="list-item logo">
                     <i className="fa fa-newspaper-o fa-2x" aria-hidden="true" ></i>
@@ -29,14 +31,22 @@ const SignedIn = () => {
                     </form>
                 </li>
                 <li className="list-item">
-                    <i className="fa fa-user-circle-o"></i>
+                    <Link to="/" className="link">
+                        <button className="initials">{props.profile.initials}</button>
+                    </Link>
                 </li>
                 <li className="list-item">
-                    <Link to="" className="link">Logout</Link>
+                    <a onClick={props.signOut}>Logout</a>
                 </li>
             </ul>
 
     )
 }
 
-export  default SignedIn;
+const mapDispatchToProps =(dispatch)=> {
+    return{
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export  default connect(null, mapDispatchToProps) (SignedIn);

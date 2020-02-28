@@ -6,6 +6,7 @@ import ClassfiedDetails from "./components/classifieds/ClassifiedDetail";
 import SignIn from "./components/authentication/SignIn";
 import SignUp from "./components/authentication/SignUp";
 import CreateClassified from "./components/classifieds/CreateClassified";
+import Notifications from "./components/dashboard/Notifications";
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/classified/:id" component={ClassfiedDetails}/>
             <Route path="/signin" component={SignIn}/>
             <Route path="/signup" component={SignUp}/>
+            <Route path="/notification" component={Notifications}/>
             <Route path="/create" component={CreateClassified}/>
 
         </Switch>
