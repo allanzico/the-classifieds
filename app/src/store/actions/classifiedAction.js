@@ -27,9 +27,10 @@ export  const createClassified = (classified) => {
 
 export const deleteClassified = (id) => {
 
-    return (dispatch, getState, {getFirestore}) =>{
+    return (dispatch, getState, {getFirebase, getFirestore}) =>{
         const  firestore = getFirestore();
-        firestore.collection('classifieds').doc(id).delete()
+
+     firestore.collection('classifieds').doc(id).delete()
             .then(()=>{
                 dispatch ({
                     type: 'DELETE_CLASSIFIED',

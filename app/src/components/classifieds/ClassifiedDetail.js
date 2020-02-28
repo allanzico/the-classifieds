@@ -13,7 +13,7 @@ const ClassifiedDetails = (props) => {
        props.history.push('/')
     }
 
-    const  {classified, auth}  = props;
+    const  {classified, auth,}  = props;
     if (!auth.uid) return <Redirect to="/signin"/>
 
     if (classified){
