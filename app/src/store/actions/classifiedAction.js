@@ -24,3 +24,22 @@ export  const createClassified = (classified) => {
 
     }
 }
+
+export const deleteClassified = (id) => {
+
+    return (dispatch, getState, {getFirestore}) =>{
+        const  firestore = getFirestore();
+        firestore.collection('classifieds').doc(id).delete()
+            .then(()=>{
+                dispatch ({
+                    type: 'DELETE_CLASSIFIED',
+                    id: id
+                })
+            }).catch((err)=> {
+            dispatch({
+                type: 'DELETE_CLASSIFIED_ERROR', err
+            })
+        })
+
+    }
+}

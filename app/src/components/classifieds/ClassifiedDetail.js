@@ -4,8 +4,14 @@ import {connect} from "react-redux";
 import {firestoreConnect} from "react-redux-firebase";
 import {Redirect} from "react-router-dom";
 import moment from "moment";
+import {deleteClassified} from "../../store/actions/classifiedAction";
 
 const ClassifiedDetails = (props) => {
+
+   function handleClick (){
+       props.deleteClassified(props.classified.id);
+       props.history.push('/')
+    }
 
     const  {classified, auth}  = props;
     if (!auth.uid) return <Redirect to="/signin"/>
@@ -29,6 +35,9 @@ const ClassifiedDetails = (props) => {
                                 added by{ classified.authorName }
                                 { moment(classified.createdAt.toDate().toString()).calendar() }
                             </p>
+                        </div>
+                        <div className="content-actions">
+                           <button onClick={handleClick}>DELETE</button>
                         </div>
                     </div>
                 </div>
@@ -58,8 +67,16 @@ const classified = classifieds ? classifieds[id] : null
     }
 }
 
+const  mapDispatchToProps = (dispatch) =>{
+    return {
+        deleteClassified: (id) => {
+            dispatch (deleteClassified(id))
+        }
+    }
+}
+
 export  default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     firestoreConnect([
         {collection: 'classifieds'}
     ])
