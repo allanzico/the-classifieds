@@ -8,7 +8,7 @@ import SignUp from "./components/authentication/SignUp";
 import CreateClassified from "./components/classifieds/CreateClassified";
 
 
-function App() {
+const App = () => {
   return (
  <BrowserRouter>
    <div className="App">

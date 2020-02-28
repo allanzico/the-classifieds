@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Notifications from "./Notifications";
 import ClassifiedsList from "../classifieds/ClassifiedList";
 import {connect} from 'react-redux';
+import {compose} from "redux";
+import {firestoreConnect} from "react-redux-firebase";
 
 
 class Dashboard extends Component {
@@ -24,9 +26,12 @@ class Dashboard extends Component {
 
 const  mapStateToProps = (state)=>{
     return {
-        classifieds: state.classified.classifieds
+        classifieds: state.firestore.ordered.classifieds
     }
 
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([{collection:'classifieds'}])
+)(Dashboard)

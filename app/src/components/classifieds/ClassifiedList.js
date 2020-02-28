@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassifiedCard from "./ClassifiedCard";
+import {Link} from "react-router-dom";
 
 const ClassifiedsList = ({classifieds})=>{
     return (
@@ -9,7 +10,12 @@ const ClassifiedsList = ({classifieds})=>{
 
                 {classifieds && classifieds.map(classified => {
                     return (
-                        <ClassifiedCard classified={classified} key={classified.id}/>
+                        <div className="card-row" key={classified.id}>
+                        <Link to={"/classified/" + classified.id} >
+                            <ClassifiedCard classified={classified}/>
+                        </Link>
+                        </div>
+
                     )
                 })}
 
