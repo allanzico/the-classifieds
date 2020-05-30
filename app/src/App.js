@@ -12,20 +12,27 @@ import Notifications from "./components/dashboard/Notifications";
 const App = () => {
   return (
  <BrowserRouter>
-   <div className="App">
-        <Navbar/>
-        <Switch>
-            <Route exact path="/" component={Dashboard}/>
-            <Route path="/classified/:id" component={ClassfiedDetails}/>
-            <Route path="/signin" component={SignIn}/>
-            <Route path="/signup" component={SignUp}/>
-            <Route path="/notification" component={Notifications}/>
-            <Route path="/create" component={CreateClassified}/>
 
-        </Switch>
+   <div className="App">
+
+           <header>
+               <Navbar/>
+           </header>
+           <Switch>
+               <Route exact path="/" component={Dashboard}/>
+               <Route path="/classified/:id" component={ClassfiedDetails}/>
+               <Route path="/signin" component={SignIn}/>
+               <Route path="/signup" component={SignUp}/>
+               <Route path="/notification" component={Notifications}/>
+               <Route path="/create" component={CreateClassified}/>
+
+           </Switch>
+
+
 
 
    </div>
+
  </BrowserRouter>
   );
 }

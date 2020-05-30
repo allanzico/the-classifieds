@@ -1,22 +1,22 @@
-import  React from 'react';
-import {compose} from "redux";
-import {connect} from "react-redux";
-import {firestoreConnect} from "react-redux-firebase";
-import {Redirect} from "react-router-dom";
+import React from 'react';
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { Redirect } from "react-router-dom";
 import moment from "moment";
-import {deleteClassified} from "../../store/actions/classifiedAction";
+import { deleteClassified } from "../../store/actions/classifiedAction";
 
 const ClassifiedDetails = (props) => {
 
-   function handleClick (){
-       props.deleteClassified(props.classified.id);
-       props.history.push('/')
+    function handleClick() {
+        props.deleteClassified(props.classified.id);
+        props.history.push('/')
     }
 
-    const  {classified, auth,}  = props;
-    if (!auth.uid) return <Redirect to="/signin"/>
+    const { classified, auth, } = props;
+    if (!auth.uid) return <Redirect to="/signin" />
 
-    if (classified){
+    if (classified) {
 
         return (
             <div className="container classified-details-container">
@@ -32,18 +32,18 @@ const ClassifiedDetails = (props) => {
                         </p>
                         <div className="content-actions">
                             <p>
-                                added by{ classified.authorName }
-                                { moment(classified.createdAt.toDate().toString()).calendar() }
+                                added by{classified.authorName}
+                                {moment(classified.createdAt.toDate().toString()).calendar()}
                             </p>
                         </div>
                         <div className="content-actions">
-                           <button onClick={handleClick}>DELETE</button>
+                            <button onClick={handleClick}>DELETE</button>
                         </div>
                     </div>
                 </div>
             </div>
         )
-    }else{
+    } else {
         return (
             <div className="container">
                 Loading...
@@ -54,11 +54,11 @@ const ClassifiedDetails = (props) => {
 
 }
 
-const  mapStateToProps =(state, ownProps) =>{
+const mapStateToProps = (state, ownProps) => {
     //console.log(state);
-const  id = ownProps.match.params.id;
-const classifieds = state.firestore.data.classifieds;
-const classified = classifieds ? classifieds[id] : null
+    const id = ownProps.match.params.id;
+    const classifieds = state.firestore.data.classifieds;
+    const classified = classifieds ? classifieds[id] : null
 
 
     return {
@@ -67,18 +67,18 @@ const classified = classifieds ? classifieds[id] : null
     }
 }
 
-const  mapDispatchToProps = (dispatch) =>{
+const mapDispatchToProps = (dispatch) => {
     return {
         deleteClassified: (id) => {
-            dispatch (deleteClassified(id))
+            dispatch(deleteClassified(id))
         }
     }
 }
 
-export  default compose(
+export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     firestoreConnect([
-        {collection: 'classifieds'}
+        { collection: 'classifieds' }
     ])
 
 )(ClassifiedDetails);

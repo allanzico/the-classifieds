@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+nav {
+  
+    font-family: 'Montserrat';
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 50px;
+    padding: 0 5px;
+    border: 1px solid rgba(238,238,238 ,1);
+    border-radius: 2px;
+    box-shadow: 5px 5px 20px -22px gray;
+}
+
+nav ul li {
+    cursor: pointer;
+    padding: 0.5rem;
+    flex: auto;
+    text-align: center;
+}
+
+
+.initials {
+  display: none ;
+}
+
+.post-ad-button{
+    border: 0;
+    padding: 8px;
+    background: red;
+    color: white;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-button {
+
+    padding: 8px;
+    font-family: 'Montserrat';
+    background:    rgba(238,238,238 ,1);
+    border-radius: 2px;
+    border: 1px solid rgb(224, 222, 222) ;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-bar{
+
+  border: 1px solid rgb(224, 222, 222) ;
+  padding: 5px;
+  height: 20px;
+  border-radius: 3px 0 0 3px;
+ 
+}
+
+.search-icon {
+  text-align: center;
+  padding: 5px;
+}
+
+.list-item {
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.list-item:hover{
+    background-color: rgb(250, 248, 248) ;
+}
+
+.main-navigation li:not(:last-child):not(.fa-newspaper-o ) {
+    margin-right: 10px;
+}
+.main-navigation li  i:not(.fa-twitter):not(.fa-search):not(.fa-user-circle-o) {
+    margin-right: 3px;
+}
+.logo {
+    margin-right: auto;
+
+    color:red;
+}
+
+.link {
+    text-decoration: none;
+}
+
+
+@media only screen and (min-width: 768px){
+nav ul {
+    flex-direction: row;
+}
+
+.initials {
+    margin: 4px 2px;
+    padding: 8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgba(238,238,238 ,1);
+    box-shadow: 5px 5px 20px -22px gray;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+
+  
+}
+
+@media only screen and (min-width: 1100px) {
+  nav ul {
+    flex-direction: row;
+}
+.initials {
+    margin: 4px 2px;
+    padding: 8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgba(238,238,238 ,1);
+    box-shadow: 5px 5px 20px -22px gray;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+}
